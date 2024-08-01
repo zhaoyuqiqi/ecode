@@ -1,9 +1,8 @@
 import { Button, Result } from '@arco-design/web-react';
 import { Navigate, Route, Link } from 'react-router-dom';
 import WithLayout from '@/layout/WithLayout';
-import Home from '@/pages/Home';
-
-// const Home = React.lazy(() => import('@/pages/Home'));
+import Home from '@/pages/home';
+import AppEditor from '@/pages/app-edtior';
 
 interface Route {
   path: string;
@@ -25,7 +24,8 @@ export default function routerHelper(routes: Routes) {
 }
 
 export const enum ROUTES_PATH {
-  HOME = '/home'
+  HOME = '/home',
+  EDITOR = '/editor'
 }
 
 export const routes: Route[] = [
@@ -36,6 +36,10 @@ export const routes: Route[] = [
         <Home />
       </WithLayout>
     )
+  },
+  {
+    path: ROUTES_PATH.EDITOR,
+    element: <AppEditor />
   },
   // {
   //   path:  '/protected',
